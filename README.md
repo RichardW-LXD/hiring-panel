@@ -1,0 +1,40 @@
+# hiring-panel
+
+A Claude Code skill. You give it a job posting, a cover letter and a resume. It sends three fresh reviewers (a recruiter, a hiring manager, a skeptic) to read them. They tell you what would stop them. No scores.
+
+The skeptic checks every number against your real resume, so you can catch a wrong number before a hiring manager does.
+
+## Install (one time)
+
+You need [Claude Code](https://claude.com/claude-code) and [Git](https://git-scm.com/downloads).
+
+**Windows (PowerShell):**
+
+```
+git clone <REPO-URL> "$HOME\.claude\skills\hiring-panel"
+```
+
+**Mac / Linux:**
+
+```
+git clone <REPO-URL> ~/.claude/skills/hiring-panel
+```
+
+Restart Claude Code. Done.
+
+## Use
+
+1. Make a folder for the job, for example `Acme/`.
+2. Put the job posting in it as `posting.md`, plus your cover letter and resume draft.
+3. In Claude Code, say: **"Run the hiring panel on the Acme folder."**
+4. Claude asks for your **source resume**: the full, true record of your work, in any format (.md, .docx, .pdf). Give it the path. Every number in your drafts is checked against it.
+5. You get `panel-review.md` in the folder, with three buckets: **Fix now**, **Ask me**, **Noted, no action**.
+
+The skill never edits your letter or resume. It only flags.
+
+## Update
+
+```
+cd "$HOME\.claude\skills\hiring-panel"
+git pull
+```
