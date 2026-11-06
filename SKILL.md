@@ -13,10 +13,18 @@ Nobody on the panel, and not you, edits a letter or resume during a run. The onl
 
 ## Inputs
 
-Collect these before spawning anything. Ask for whatever is missing.
+Collect these before spawning anything, in this order. Ask for whatever is missing.
+
+1. **Application folder.** Look for the folder the user named, or the current folder if it holds a posting, letter or resume. If you cannot find one, do not guess and do not go on. Tell the user how to set it up, in plain words:
+   - Make a new folder for this job, named for the company, for example `Acme`.
+   - Put these files in it: your cover letter draft and your resume draft (any format Claude can read).
+   - The job posting goes in too, but you will ask for it next, so they can skip it for now.
+   - Then ask for the folder's path, or ask them to say "ready" once it exists. Offer to create the empty folder for them.
+2. **Job description.** Next, ask: "Please paste the job description, or give me the path to a file that has it." Do not review anything without it. If they paste it, save it as `posting.md` in the application folder.
+3. **The rest.** Source resume, letter and resume draft are below.
 
 - **Source resume (required).** The user's full resume, the one true record of their work. Any format Claude can read (.md, .docx, .pdf, .txt). Every claim and number in a draft must trace to it. If the user has not given a path this session, ask for it. Do not guess.
-- **Posting (required).** The job posting text, in a file or pasted. If pasted, save it as `posting.md` in the application folder first. Without a posting there is no panel.
+- **Posting (required).** The job description from step 2, saved as `posting.md`. Without a posting there is no panel.
 - **Letter.** The cover letter draft. Prefer the file that gets sent (the HTML or docx that becomes the PDF) over a markdown working copy. If a working copy is newer than the sent file, tell the user the sent file may be behind.
 - **Resume draft.** The tailored resume for this application. If there is none, the source resume stands in, and the report says so.
 - **Portfolio URL (optional).** A personal site or case-study page. If given, the skeptic may check claims against it.
