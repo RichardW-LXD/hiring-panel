@@ -15,10 +15,10 @@ Nobody on the panel, and not you, edits a letter or resume during a run. The onl
 
 Collect these before spawning anything, in this order. Ask for whatever is missing.
 
-1. **Main folder, once.** All applications live under one main folder that the user chooses. Look for it only where the user has already told you: a path given this session, or the current folder if it holds job subfolders. Never assume a location. If you have no path, do not go on. Tell the user, in plain words:
+1. **Main folder, once.** All applications live under one main folder that the user chooses. Look for it only where the user has already told you. First read `config.json` in this skill's own folder (`~/.claude/skills/hiring-panel/config.json`). If it has an `applications_folder` and that folder exists, use it, say which folder in one line, and skip the rest of this step. Otherwise use a path the user gave this session. Never assume a location. If you have no path, do not go on. Tell the user, in plain words:
    - You only do this once. Every job gets its own subfolder inside it, and you create those yourself.
    - Ask: "Where would you like to keep your job applications? Give me a folder path, for example inside your Claude folder, or say where you'd like a new one." Let them choose. Offer no default.
-   - If the folder does not exist, create it, then remember its path for the rest of the session and tell them where it is.
+   - If the folder does not exist, create it. Save its path to `config.json` as `{"applications_folder": "<path>"}`, keeping any other keys, and tell them where it is and that you will remember it. If they later name a different folder, update the file.
 2. **Job description.** Ask: "Please paste the job description, or give me the path to a file that has it." Do not go on without it. Read the company name and job title from it. If either is unclear, ask.
 3. **Job folder, automatic.** Create `<Main folder>\<Company>\` yourself. If that company already has a folder and the role differs, use `<Company> - <Role>`. If it is the same role, reuse the folder and say so. Save the job description there as `posting.md`. Never make the user create job folders.
 4. **Drafts.** Ask for the custom cover letter and custom resume for this job (paths, or pasted text). Copy or save them into the job folder as `cover-letter.<ext>` and `resume.<ext>`. The letter is required: if there is none yet, say the panel needs it, and wait. If there is no custom resume, the source resume stands in. Do not write either draft.
@@ -27,7 +27,7 @@ The job folder ends up holding `posting.md`, `cover-letter.*`, `resume.*`, and l
 
 Then the remaining inputs:
 
-- **Source resume (required).** The user's full resume, the one true record of their work. Any format Claude can read (.md, .docx, .pdf, .txt). Every claim and number in a draft must trace to it. Ask for the path once and reuse it for later jobs this session; suggest saving a copy in the main folder as `source-resume.*` so it is there next time and can be found automatically. Do not guess.
+- **Source resume (required).** The user's full resume, the one true record of their work. Any format Claude can read (.md, .docx, .pdf, .txt). Every claim and number in a draft must trace to it. Check `config.json` for `source_resume` first and use it if the file still exists. Otherwise ask for the path, then save it to `config.json` as `source_resume` so you do not ask again. Do not guess.
 - **Posting (required).** The job description from step 2, saved as `posting.md` in the job folder. Without a posting there is no panel.
 - **Letter.** The cover letter draft. Prefer the file that gets sent (the HTML or docx that becomes the PDF) over a markdown working copy. If a working copy is newer than the sent file, tell the user the sent file may be behind.
 - **Resume draft.** The tailored resume for this application. If there is none, the source resume stands in, and the report says so.
