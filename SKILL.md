@@ -15,10 +15,10 @@ Nobody on the panel, and not you, edits a letter or resume during a run. The onl
 
 Collect these before spawning anything, in this order. Ask for whatever is missing.
 
-1. **Main folder, once.** All applications live under one main folder, for example `Job Applications`. Look for it: the path the user gave this session, a `Job Applications` folder in their Documents folder, or the current folder if it is named that. If none exists, do not go on. Tell the user, in plain words:
+1. **Main folder, once.** All applications live under one main folder that the user chooses. Look for it only where the user has already told you: a path given this session, or the current folder if it holds job subfolders. Never assume a location. If you have no path, do not go on. Tell the user, in plain words:
    - You only do this once. Every job gets its own subfolder inside it, and you create those yourself.
-   - Suggest `Documents\Job Applications`, and ask for a different location if they prefer.
-   - Create the folder for them once they agree, then remember its path for the rest of the session.
+   - Ask: "Where would you like to keep your job applications? Give me a folder path, for example inside your Claude folder, or say where you'd like a new one." Let them choose. Offer no default.
+   - If the folder does not exist, create it, then remember its path for the rest of the session and tell them where it is.
 2. **Job description.** Ask: "Please paste the job description, or give me the path to a file that has it." Do not go on without it. Read the company name and job title from it. If either is unclear, ask.
 3. **Job folder, automatic.** Create `<Main folder>\<Company>\` yourself. If that company already has a folder and the role differs, use `<Company> - <Role>`. If it is the same role, reuse the folder and say so. Save the job description there as `posting.md`. Never make the user create job folders.
 4. **Drafts.** Ask for the custom cover letter and custom resume for this job (paths, or pasted text). Copy or save them into the job folder as `cover-letter.<ext>` and `resume.<ext>`. The letter is required: if there is none yet, say the panel needs it, and wait. If there is no custom resume, the source resume stands in. Do not write either draft.

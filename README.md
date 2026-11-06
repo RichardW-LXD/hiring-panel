@@ -25,8 +25,8 @@ Restart Claude Code. Done.
 ## Use
 
 1. In Claude Code, say: **"Run the hiring panel."**
-2. The first time, it asks where to keep your applications. It suggests `Documents\Job Applications` and creates it for you. You do this once.
-3. It asks you to paste the job description. It makes a new folder for that job inside `Job Applications` by itself, and saves the description there.
+2. The first time, it asks where you want to keep your applications. Pick any folder you like, for example inside your Claude folder. It creates it if it doesn't exist. You do this once.
+3. It asks you to paste the job description. It makes a new folder for that job inside your applications folder by itself, and saves the description there.
 4. It asks for your custom cover letter and custom resume for this job, and copies them into the job folder.
 5. It asks for your source resume: the full, true record of your work, in any format (.md, .docx, .pdf). Every number in your drafts is checked against it.
 6. You get `panel-review.md` in the job folder, with three lists: **Fix now**, **Ask me**, **Noted, no action**.
