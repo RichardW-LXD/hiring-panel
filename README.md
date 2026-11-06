@@ -11,13 +11,13 @@ You need [Claude Code](https://claude.com/claude-code) and [Git](https://git-scm
 **Windows (PowerShell):**
 
 ```
-git clone <REPO-URL> "$HOME\.claude\skills\hiring-panel"
+git clone https://github.com/RichardW-LXD/hiring-panel.git "$HOME\.claude\skills\hiring-panel"
 ```
 
 **Mac / Linux:**
 
 ```
-git clone <REPO-URL> ~/.claude/skills/hiring-panel
+git clone https://github.com/RichardW-LXD/hiring-panel.git ~/.claude/skills/hiring-panel
 ```
 
 Restart Claude Code. Done.
