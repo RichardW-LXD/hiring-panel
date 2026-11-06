@@ -15,23 +15,27 @@ Nobody on the panel, and not you, edits a letter or resume during a run. The onl
 
 Collect these before spawning anything, in this order. Ask for whatever is missing.
 
-1. **Application folder.** Look for the folder the user named, or the current folder if it holds a posting, letter or resume. If you cannot find one, do not guess and do not go on. Tell the user how to set it up, in plain words:
-   - Make a new folder for this job, named for the company, for example `Acme`.
-   - Put these files in it: your cover letter draft and your resume draft (any format Claude can read).
-   - The job posting goes in too, but you will ask for it next, so they can skip it for now.
-   - Then ask for the folder's path, or ask them to say "ready" once it exists. Offer to create the empty folder for them.
-2. **Job description.** Next, ask: "Please paste the job description, or give me the path to a file that has it." Do not review anything without it. If they paste it, save it as `posting.md` in the application folder.
-3. **The rest.** Source resume, letter and resume draft are below.
+1. **Main folder, once.** All applications live under one main folder, for example `Job Applications`. Look for it: the path the user gave this session, a `Job Applications` folder in their Documents folder, or the current folder if it is named that. If none exists, do not go on. Tell the user, in plain words:
+   - You only do this once. Every job gets its own subfolder inside it, and you create those yourself.
+   - Suggest `Documents\Job Applications`, and ask for a different location if they prefer.
+   - Create the folder for them once they agree, then remember its path for the rest of the session.
+2. **Job description.** Ask: "Please paste the job description, or give me the path to a file that has it." Do not go on without it. Read the company name and job title from it. If either is unclear, ask.
+3. **Job folder, automatic.** Create `<Main folder>\<Company>\` yourself. If that company already has a folder and the role differs, use `<Company> - <Role>`. If it is the same role, reuse the folder and say so. Save the job description there as `posting.md`. Never make the user create job folders.
+4. **Drafts.** Ask for the custom cover letter and custom resume for this job (paths, or pasted text). Copy or save them into the job folder as `cover-letter.<ext>` and `resume.<ext>`. The letter is required: if there is none yet, say the panel needs it, and wait. If there is no custom resume, the source resume stands in. Do not write either draft.
 
-- **Source resume (required).** The user's full resume, the one true record of their work. Any format Claude can read (.md, .docx, .pdf, .txt). Every claim and number in a draft must trace to it. If the user has not given a path this session, ask for it. Do not guess.
-- **Posting (required).** The job description from step 2, saved as `posting.md`. Without a posting there is no panel.
+The job folder ends up holding `posting.md`, `cover-letter.*`, `resume.*`, and later `panel-review.md`.
+
+Then the remaining inputs:
+
+- **Source resume (required).** The user's full resume, the one true record of their work. Any format Claude can read (.md, .docx, .pdf, .txt). Every claim and number in a draft must trace to it. Ask for the path once and reuse it for later jobs this session; suggest saving a copy in the main folder as `source-resume.*` so it is there next time and can be found automatically. Do not guess.
+- **Posting (required).** The job description from step 2, saved as `posting.md` in the job folder. Without a posting there is no panel.
 - **Letter.** The cover letter draft. Prefer the file that gets sent (the HTML or docx that becomes the PDF) over a markdown working copy. If a working copy is newer than the sent file, tell the user the sent file may be behind.
 - **Resume draft.** The tailored resume for this application. If there is none, the source resume stands in, and the report says so.
 - **Portfolio URL (optional).** A personal site or case-study page. If given, the skeptic may check claims against it.
 
 The user may name specific files. Then those win.
 
-Keep each application in its own folder, for example `<Company>/` holding `posting.md`, the letter, and the resume draft. `panel-review.md` is written into that folder.
+`panel-review.md` is written into the job folder.
 
 ## Run
 

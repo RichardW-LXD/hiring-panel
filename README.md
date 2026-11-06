@@ -24,11 +24,14 @@ Restart Claude Code. Done.
 
 ## Use
 
-1. Make a folder for the job, for example `Acme/`.
-2. Put the job posting in it as `posting.md`, plus your cover letter and resume draft.
-3. In Claude Code, say: **"Run the hiring panel on the Acme folder."**
-4. Claude asks for your **source resume**: the full, true record of your work, in any format (.md, .docx, .pdf). Give it the path. Every number in your drafts is checked against it.
-5. You get `panel-review.md` in the folder, with three buckets: **Fix now**, **Ask me**, **Noted, no action**.
+1. In Claude Code, say: **"Run the hiring panel."**
+2. The first time, it asks where to keep your applications. It suggests `Documents\Job Applications` and creates it for you. You do this once.
+3. It asks you to paste the job description. It makes a new folder for that job inside `Job Applications` by itself, and saves the description there.
+4. It asks for your custom cover letter and custom resume for this job, and copies them into the job folder.
+5. It asks for your source resume: the full, true record of your work, in any format (.md, .docx, .pdf). Every number in your drafts is checked against it.
+6. You get `panel-review.md` in the job folder, with three lists: **Fix now**, **Ask me**, **Noted, no action**.
+
+For the next job, say "Run the hiring panel" again. It makes another job folder for you.
 
 The skill never edits your letter or resume. It only flags.
 
